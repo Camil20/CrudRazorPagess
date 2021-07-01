@@ -20,6 +20,7 @@ namespace CrudRazorPages.Clientes
 
         public IActionResult OnGet()
         {
+            ViewData["EstadoId"] = new SelectList(_context.Estados, "EstadoId", "Nombres");
             return Page();
         }
 

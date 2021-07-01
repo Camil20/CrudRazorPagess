@@ -22,7 +22,7 @@ namespace CrudRazorPages.Clientes
 
         public async Task OnGetAsync()
         {
-            Cliente = await _context.Clientes.ToListAsync();
+            Cliente = await _context.Clientes.Include(x=> x.Estado).ToListAsync();
         }
     }
 }

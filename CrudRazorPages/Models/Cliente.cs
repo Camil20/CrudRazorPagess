@@ -21,8 +21,6 @@ namespace CrudRazorPages
         [Required(ErrorMessage = "Este campo es requerido")]
         [StringLength(1)]
         public string Sexo { get; set; }
-        [Required(ErrorMessage = "Este campo es requerido")]
-        [Range(1,2)]
         public int EstadoId { get; set; }
 
         public virtual Estado Estado { get; set; }

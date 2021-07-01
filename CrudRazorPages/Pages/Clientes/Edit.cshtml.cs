@@ -29,12 +29,14 @@ namespace CrudRazorPages.Clientes
                 return NotFound();
             }
 
-            Cliente = await _context.Clientes.FirstOrDefaultAsync(m => m.ClienteId == id);
+            
+            Cliente = await _context.Clientes.Include(x => x.Estado).FirstOrDefaultAsync(m => m.ClienteId == id);
 
             if (Cliente == null)
             {
                 return NotFound();
             }
+            ViewData["EstadoId"] = new SelectList(_context.Estados, "EstadoId", "Nombres");
             return Page();
         }
 
